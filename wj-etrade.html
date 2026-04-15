@@ -24,7 +24,9 @@
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
-::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
 /* CURSOR */
 .cursor{width:12px;height:12px;border-radius:50%;background:var(--blue);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .2s,height .2s;}
@@ -57,8 +59,6 @@ nav.sc{box-shadow:0 4px 24px rgba(20,96,238,.08);}
 .meta-cell{padding:1.25rem 1.5rem;background:var(--white);}
 .meta-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.4rem;}
 .meta-val{font-size:.88rem;font-weight:700;color:var(--text);line-height:1.4;}
-
-/* HERO IMAGE */
 .hero-img-wrap{border-radius:20px;overflow:hidden;border:1.5px solid var(--border);opacity:0;animation:up .6s ease .7s forwards;}
 .hero-img-wrap img{width:100%;display:block;max-height:480px;object-fit:cover;}
 
@@ -70,12 +70,14 @@ nav.sc{box-shadow:0 4px 24px rgba(20,96,238,.08);}
 .sec-h em{font-style:normal;color:var(--blue);}
 .body-p{font-size:1rem;color:var(--t2);line-height:1.85;max-width:700px;margin-bottom:1.25rem;}
 .body-p strong{color:var(--text);font-weight:700;}
-.divider{height:1.5px;background:linear-gradient(90deg,var(--border),transparent);margin:4.5rem 0;}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
 .reveal.in{opacity:1;transform:none;}
-.d1{transition-delay:.07s;}.d2{transition-delay:.14s;}.d3{transition-delay:.21s;}.d4{transition-delay:.28s;}
+.d1{transition-delay:.07s;}
+.d2{transition-delay:.14s;}
+.d3{transition-delay:.21s;}
+.d4{transition-delay:.28s;}
 
 /* CHIPS */
 .ch{font-size:.65rem;font-weight:700;padding:.26rem .7rem;border-radius:100px;letter-spacing:.03em;display:inline-block;}
@@ -113,12 +115,12 @@ nav.sc{box-shadow:0 4px 24px rgba(20,96,238,.08);}
 .f-drop{font-size:.7rem;font-weight:700;color:var(--coral);min-width:90px;}
 .f-nda{font-size:.75rem;color:var(--t3);font-style:italic;margin-top:1rem;}
 
-/* FULL-WIDTH IMAGE */
+/* IMAGE BLOCK */
 .img-block{border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin:2rem 0;}
 .img-block img{width:100%;display:block;}
 .img-caption{font-size:.78rem;color:var(--t3);text-align:center;padding:.875rem 1.25rem;background:var(--white);border-top:1px solid var(--border);}
 
-/* SIDE-BY-SIDE */
+/* GRID */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.75rem 0;}
 .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:1.75rem 0;}
 
@@ -127,7 +129,7 @@ nav.sc{box-shadow:0 4px 24px rgba(20,96,238,.08);}
 .callout-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.65rem;}
 .callout-text{font-size:1.1rem;font-weight:700;color:var(--text);line-height:1.65;font-style:italic;}
 
-/* STAT CARDS */
+/* STATS */
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2.5rem 0;}
 .stat-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;text-align:center;transition:border-color .2s,transform .2s;}
 .stat-card:hover{border-color:var(--blue);transform:translateY(-3px);}
@@ -160,9 +162,13 @@ nav.sc{box-shadow:0 4px 24px rgba(20,96,238,.08);}
 .nl-arrow{width:50px;height:50px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 4px 16px rgba(20,96,238,.3);transition:transform .2s;}
 .next-link:hover .nl-arrow{transform:translateX(4px);}
 
-/* RESULTS BG */
+/* RESULTS SECTION */
 .results-sec{background:var(--white);border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
 .results-sec .wrap{padding-top:5rem;padding-bottom:5rem;}
+
+/* DIVIDER */
+.sec-divider{max-width:1140px;margin:0 auto;padding:0 3rem;}
+.sec-divider hr{height:1.5px;border:none;background:linear-gradient(90deg,var(--border),transparent);}
 
 /* FOOTER */
 footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(--white);}
@@ -172,14 +178,11 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
 .ft-links a{font-size:.78rem;font-weight:700;color:var(--t2);text-decoration:none;transition:color .2s;}
 .ft-links a:hover{color:var(--blue);}
 
-/* SECTION DIVIDER LINE */
-.sec-divider{max-width:1140px;margin:0 auto;padding:0 3rem;}
-.sec-divider hr{height:1.5px;border:none;background:linear-gradient(90deg,var(--border),transparent);}
+@keyframes up{
+  from{opacity:0;transform:translateY(22px);}
+  to{opacity:1;transform:translateY(0);}
+}
 
-/* KEYFRAMES */
-@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-
-/* RESPONSIVE */
 @media(max-width:900px){
   nav,footer{padding-left:1.5rem;padding-right:1.5rem;}
   .hero,.wrap{padding-left:1.5rem;padding-right:1.5rem;}
@@ -196,19 +199,17 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
 <div class="cursor-ring" id="curRing"></div>
 <div class="prog" id="prog"></div>
 
-<!-- NAV -->
 <nav id="nav">
-  <a class="nav-back" href="doris-wang-portfolio.html">
+  <a class="nav-back" href="index.html">
     <span class="back-icon">←</span>
     Back to Portfolio
   </a>
-  <a class="nav-logo" href="doris-wang-portfolio.html">
+  <a class="nav-logo" href="index.html">
     <span class="nav-dot"></span>Doris Wang
   </a>
   <a class="nav-cta" href="https://wjetrade.com" target="_blank">Live Site ↗</a>
 </nav>
 
-<!-- ── HERO ── -->
 <header class="hero">
   <div class="hero-badge">
     <span class="ch ch-ux">UX Design</span>&nbsp;&nbsp;<span class="ch ch-live">✓ Launched</span>
@@ -235,13 +236,11 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
     </div>
   </div>
 
-  <!-- REAL BRAND IMAGE -->
   <div class="hero-img-wrap">
     <img src="wj-etrade.png" alt="WJ-Etrade — We got you covered">
   </div>
 </header>
 
-<!-- ── 01 OVERVIEW ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">01 / Overview</div>
@@ -299,9 +298,8 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
   </div>
 </div>
 
-<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+<div class="sec-divider" style="padding-top:4.5rem;"><hr></div>
 
-<!-- ── 02 RESEARCH & DATA ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">02 / Research & Data Analysis</div>
@@ -353,9 +351,8 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
   </div>
 </div>
 
-<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+<div class="sec-divider" style="padding-top:4.5rem;"><hr></div>
 
-<!-- ── 03 COMPETITOR ANALYSIS ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">03 / Competitor Analysis</div>
@@ -363,7 +360,6 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
     <p class="body-p">I benchmarked WJ-Etrade against three direct competitors — Wayfair, Coverstone, and Classic Accessories — across five key UX criteria to identify where WJ-Etrade fell behind and where it had an edge.</p>
   </div>
 
-  <!-- REAL COMPETITOR ANALYSIS IMAGE -->
   <div class="img-block reveal">
     <img src="analysis.png" alt="Competitive analysis matrix — WJ-Etrade vs Wayfair vs Coverstone vs Classic Accessories">
     <div class="img-caption">Competitive audit across Navigation & Filtering, PDP quality, Checkout Flow, Trust & Reviews, and Mobile Experience</div>
@@ -388,9 +384,8 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
   </div>
 </div>
 
-<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+<div class="sec-divider" style="padding-top:4.5rem;"><hr></div>
 
-<!-- ── 04 USER INTERVIEWS ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">04 / Returning Customer Interviews</div>
@@ -398,22 +393,19 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
     <p class="body-p">I conducted remote interviews with returning customers focused on the repeat purchase flow — understanding why they returned, what they trusted, and where the current experience still created friction around fit, reordering, and confidence.</p>
   </div>
 
-  <!-- REAL INTERVIEW IMAGE 1 -->
   <div class="img-block reveal">
     <img src="returning_customer_interview.png" alt="Returning customer interview — Insight 1: product fit and category clarity">
     <div class="img-caption">Insight 1 — Returning customers want to quickly understand differences between product types without manual comparison</div>
   </div>
 
-  <!-- REAL INTERVIEW IMAGE 2 -->
   <div class="img-block reveal">
     <img src="review-2.png" alt="Interview Insights 2 & 3 — trust signals and customization needs">
     <div class="img-caption">Insight 2 & 3 — Material trust signals and customization flexibility surfaced as critical unmet needs</div>
   </div>
 </div>
 
-<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+<div class="sec-divider" style="padding-top:4.5rem;"><hr></div>
 
-<!-- ── 05 SYNTHESIS ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">05 / Insight Synthesis</div>
@@ -425,22 +417,19 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
     <div class="callout-text">"How might we streamline the shopping experience to improve user satisfaction and boost both purchase and return customer rates?"</div>
   </div>
 
-  <!-- REAL SYNTHESIS IMAGE 1 — Category Structure -->
   <div class="img-block reveal">
     <img src="insight_synthesis.jpg" alt="Insight Synthesis 01 — Category-based product structure and featured sorting">
     <div class="img-caption">Synthesis 01 — Category-based navigation structure reduces cognitive load by letting users self-identify furniture type instantly</div>
   </div>
 
-  <!-- REAL SYNTHESIS IMAGE 2 — Trust-Driven -->
   <div class="img-block reveal">
     <img src="insight-2.png" alt="Insight Synthesis 02 — Trust-driven product presentation and real-world validation">
     <div class="img-caption">Synthesis 02 — Making material quality and trust signals explicitly visible throughout the browsing and product detail experience</div>
   </div>
 </div>
 
-<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+<div class="sec-divider" style="padding-top:4.5rem;"><hr></div>
 
-<!-- ── 06 DESIGN ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">06 / Design</div>
@@ -486,9 +475,6 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
   </div>
 </div>
 
-<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
-
-<!-- ── 07 RESULTS ── -->
 <section class="results-sec">
   <div class="wrap">
     <div class="reveal">
@@ -496,6 +482,7 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
       <h2 class="sec-h">Measurable <em>Impact</em></h2>
       <p class="body-p">Post-launch metrics confirmed the redesign achieved its goals — improving both business performance and user experience across key touchpoints.</p>
     </div>
+
     <div class="stat-row reveal">
       <div class="stat-card">
         <div class="stat-n blue">+15%</div>
@@ -511,18 +498,18 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
       </div>
       <div class="stat-card">
         <div class="stat-n coral">+5%</div>
-        <div class="stat-desc">"Add to Cart" click rate on PDP</div>
+        <div class="stat-desc">Add to Cart click rate on PDP</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── 08 TAKEAWAY ── -->
 <div class="wrap sec">
   <div class="reveal">
     <div class="sec-num">08 / Takeaway</div>
     <h2 class="sec-h">What I <em>Learned</em></h2>
   </div>
+
   <div class="tk-box reveal">
     <div class="tk-row">
       <div class="tk-icon">🎯</div>
@@ -547,10 +534,10 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
     </div>
   </div>
 
-  <a href="https://www.doriswang.me/leaflet" target="_blank" class="next-link reveal">
+  <a href="index.html" class="next-link reveal">
     <div>
-      <div class="nl-label">Next Project</div>
-      <div class="nl-title">Leaflet — Daily Commute Adventure App →</div>
+      <div class="nl-label">Back</div>
+      <div class="nl-title">Return to Portfolio →</div>
     </div>
     <div class="nl-arrow">→</div>
   </a>
@@ -560,7 +547,7 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
   <div class="ft">
     <span class="ft-copy">© 2024 Doris Wang · Product Designer & Data Analyst</span>
     <div class="ft-links">
-      <a href="doris-wang-portfolio.html">← Portfolio</a>
+      <a href="index.html">← Portfolio</a>
       <a href="https://github.com/doriswang-me" target="_blank">GitHub</a>
       <a href="https://wjetrade.com" target="_blank">Live Site ↗</a>
     </div>
@@ -568,41 +555,61 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
 </footer>
 
 <script>
-/* CURSOR */
-const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
-document.querySelectorAll('a,button,.card,.stat-card,.step,.img-block').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('ch-big'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch-big'));
+const cur = document.getElementById('cur');
+const ring = document.getElementById('curRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX;
+  my = e.clientY;
+  cur.style.left = mx + 'px';
+  cur.style.top = my + 'px';
 });
 
-/* PROGRESS BAR */
-window.addEventListener('scroll',()=>{
-  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
-  document.getElementById('prog').style.width=pct+'%';
-  document.getElementById('nav').classList.toggle('sc',window.scrollY>40);
+(function anim(){
+  rx += (mx - rx) * .12;
+  ry += (my - ry) * .12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(anim);
+})();
+
+document.querySelectorAll('a,button,.card,.stat-card,.step,.img-block').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('ch-big'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('ch-big'));
 });
 
-/* SCROLL REVEAL */
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-},{threshold:.08});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('nav').classList.toggle('sc', window.scrollY > 40);
+});
 
-/* FUNNEL BARS */
-const fio=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.f-fill').forEach((f,i)=>{
-        setTimeout(()=>{f.style.width=f.dataset.w+'%';},i*170);
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .08 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const fio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.f-fill').forEach((f, i) => {
+        setTimeout(() => {
+          f.style.width = f.dataset.w + '%';
+        }, i * 170);
       });
       fio.unobserve(e.target);
     }
   });
-},{threshold:.2});
-document.querySelectorAll('.funnel-box').forEach(el=>fio.observe(el));
+}, { threshold: .2 });
+
+document.querySelectorAll('.funnel-box').forEach(el => fio.observe(el));
 </script>
 </body>
 </html>
