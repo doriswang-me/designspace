@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doris Wang — Product Designer & Data Analyst</title>
+<title>WJ-Etrade Case Study — Doris Wang</title>
 <link rel="stylesheet" href="https://unpkg.com/@fontsource/plus-jakarta-sans@5.0.8/400.css">
 <link rel="stylesheet" href="https://unpkg.com/@fontsource/plus-jakarta-sans@5.0.8/500.css">
 <link rel="stylesheet" href="https://unpkg.com/@fontsource/plus-jakarta-sans@5.0.8/600.css">
@@ -12,23 +12,12 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bg:#E8F3FF;
-  --bg2:#EEF7FF;
-  --white:#FFFFFF;
-  --surface:#F4F9FF;
-  --border:#C5DEFF;
-  --border2:#A2C6FF;
-  --text:#09182A;
-  --t2:#456080;
-  --t3:#8AAFC8;
-  --blue:#1460EE;
-  --blue-s:#EAF2FF;
-  --blue-d:#0F4DC4;
-  --coral:#FF4040;
-  --coral-s:#FFF0F0;
-  --teal:#00A896;
-  --teal-s:#E4FAF7;
-  --violet:#6C3BFF;
+  --bg:#E8F3FF; --white:#fff; --surface:#F4F9FF;
+  --border:#C5DEFF; --border2:#A2C6FF;
+  --text:#09182A; --t2:#456080; --t3:#8AAFC8;
+  --blue:#1460EE; --blue-s:#EAF2FF; --blue-d:#0F4DC4;
+  --coral:#FF4040; --coral-s:#FFF0F0;
+  --teal:#00A896; --teal-s:#E4FAF7;
   --amber:#F59E0B;
   --sh:0 2px 20px rgba(20,96,238,.10);
   --sh-lg:0 12px 48px rgba(20,96,238,.15);
@@ -37,133 +26,145 @@ html{scroll-behavior:smooth;}
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
-/* ── CUSTOM CURSOR ── */
-.cursor{width:12px;height:12px;border-radius:50%;background:var(--blue);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .08s,width .2s,height .2s,background .2s;mix-blend-mode:multiply;}
-.cursor-ring{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(20,96,238,.35);position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s ease,width .25s,height .25s,opacity .2s;}
-.cursor-hover .cursor{width:20px;height:20px;background:var(--blue-d);}
-.cursor-hover .cursor-ring{width:52px;height:52px;opacity:.5;}
+/* CURSOR */
+.cursor{width:12px;height:12px;border-radius:50%;background:var(--blue);position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .2s,height .2s;}
+.cursor-ring{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(20,96,238,.3);position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .18s ease,width .25s,height .25s;}
+.ch-big .cursor{width:20px;height:20px;}
+.ch-big .cursor-ring{width:52px;height:52px;opacity:.5;}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 3rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(232,243,255,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1.5px solid var(--border);transition:box-shadow .3s;}
-nav.scrolled{box-shadow:0 4px 24px rgba(20,96,238,.08);}
-.logo{font-size:.95rem;font-weight:800;letter-spacing:-.03em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.5rem;}
-.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);}
-.nav-center{display:flex;gap:.25rem;background:var(--white);border:1.5px solid var(--border);border-radius:100px;padding:4px;}
-.nav-pill{padding:.45rem 1.1rem;border-radius:100px;font-size:.82rem;font-weight:700;color:var(--t2);text-decoration:none;transition:all .2s;white-space:nowrap;}
-.nav-pill:hover{color:var(--text);background:var(--surface);}
-.nav-pill.active-ux{background:linear-gradient(135deg,#FF4040,#FF9A3C);color:#fff;box-shadow:0 2px 12px rgba(255,64,64,.3);}
-.nav-pill.active-data{background:linear-gradient(135deg,#00A896,#1460EE);color:#fff;box-shadow:0 2px 12px rgba(0,168,150,.3);}
-.nav-right{display:flex;gap:.75rem;align-items:center;}
-.nav-skills{font-size:.82rem;font-weight:600;color:var(--t2);text-decoration:none;transition:color .2s;}
-.nav-skills:hover{color:var(--blue);}
-.nav-cta{padding:.55rem 1.3rem;background:var(--blue);color:#fff;border-radius:100px;font-size:.82rem;font-weight:700;text-decoration:none;box-shadow:0 3px 14px rgba(20,96,238,.32);transition:all .2s;}
+/* PROGRESS */
+.prog{position:fixed;top:64px;left:0;height:3px;background:linear-gradient(90deg,var(--coral),var(--amber));z-index:400;width:0;border-radius:0 2px 2px 0;transition:width .1s linear;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;padding:0 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(232,243,255,.92);backdrop-filter:blur(22px);border-bottom:1.5px solid var(--border);transition:box-shadow .3s;}
+nav.sc{box-shadow:0 4px 24px rgba(20,96,238,.08);}
+.nav-back{display:flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:700;color:var(--t2);text-decoration:none;transition:color .2s;}
+.nav-back:hover{color:var(--blue);}
+.back-icon{width:28px;height:28px;border-radius:50%;background:var(--white);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.nav-back:hover .back-icon{background:var(--blue-s);border-color:var(--blue);}
+.nav-logo{font-size:.95rem;font-weight:800;letter-spacing:-.03em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.45rem;}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);}
+.nav-cta{padding:.5rem 1.2rem;background:var(--blue);color:#fff;border-radius:100px;font-size:.82rem;font-weight:700;text-decoration:none;box-shadow:0 3px 14px rgba(20,96,238,.3);transition:all .2s;}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(20,96,238,.42);}
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:7rem 3rem 4rem;max-width:1140px;margin:0 auto;position:relative;}
-.hero-bg-orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.18;animation:orb-drift 12s ease-in-out infinite alternate;}
-.orb1{width:500px;height:500px;background:radial-gradient(circle,#1460EE,transparent);top:-100px;left:-100px;animation-delay:0s;}
-.orb2{width:400px;height:400px;background:radial-gradient(circle,#00A896,transparent);bottom:-80px;right:-80px;animation-delay:-4s;}
-.orb3{width:300px;height:300px;background:radial-gradient(circle,#FF4040,transparent);top:40%;right:20%;animation-delay:-8s;}
-.hero-inner{position:relative;z-index:1;max-width:760px;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem 1.1rem;border-radius:100px;background:var(--blue-s);border:1.5px solid rgba(20,96,238,.2);font-size:.76rem;font-weight:700;color:var(--blue);margin-bottom:2rem;opacity:0;animation:fadeUp .5s ease .1s forwards;}
-.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite;}
-.hero-greeting{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:600;color:var(--t2);margin-bottom:.5rem;opacity:0;animation:fadeUp .5s ease .25s forwards;}
-.hero-name{font-size:clamp(4rem,8.5vw,8rem);font-weight:800;letter-spacing:-.055em;line-height:.95;color:var(--text);margin-bottom:1.5rem;opacity:0;animation:fadeUp .55s ease .38s forwards;}
-.hero-name .ac{color:var(--blue);}
-/* TYPEWRITER */
-.typewriter-wrap{font-size:clamp(1.4rem,3vw,2.2rem);font-weight:700;color:var(--t2);margin-bottom:2rem;min-height:2.8rem;display:flex;align-items:center;gap:.6rem;opacity:0;animation:fadeUp .55s ease .55s forwards;}
-.tw-prefix{color:var(--t3);}
-.tw-text{color:var(--text);position:relative;}
-.tw-cursor{display:inline-block;width:3px;height:1.1em;background:var(--blue);margin-left:2px;vertical-align:middle;animation:blink .75s step-end infinite;border-radius:2px;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.hero-sub{font-size:1.05rem;color:var(--t2);line-height:1.8;max-width:520px;margin-bottom:2.75rem;opacity:0;animation:fadeUp .55s ease .7s forwards;}
-.hero-sub strong{color:var(--text);font-weight:700;}
-.hero-cta{display:flex;gap:.75rem;flex-wrap:wrap;opacity:0;animation:fadeUp .55s ease .85s forwards;}
-.btn-fill{padding:.9rem 2.2rem;border-radius:100px;background:var(--blue);color:#fff;font-size:.9rem;font-weight:700;text-decoration:none;box-shadow:0 4px 20px rgba(20,96,238,.32);transition:all .25s;display:inline-flex;align-items:center;gap:.45rem;font-family:inherit;position:relative;overflow:hidden;}
-.btn-fill::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0);transition:background .2s;}
-.btn-fill:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(20,96,238,.42);}
-.btn-fill:hover::after{background:rgba(255,255,255,.08);}
-.btn-out{padding:.9rem 2.2rem;border-radius:100px;background:var(--white);color:var(--text);font-size:.9rem;font-weight:700;text-decoration:none;border:1.5px solid var(--border2);transition:all .25s;display:inline-flex;align-items:center;gap:.45rem;font-family:inherit;}
-.btn-out:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);box-shadow:0 4px 20px rgba(20,96,238,.12);}
-/* hero scroll hint */
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn .6s ease 1.5s forwards;}
-.scroll-hint span{font-size:.7rem;font-weight:600;color:var(--t3);letter-spacing:.1em;text-transform:uppercase;}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--border2),transparent);animation:scroll-pulse 1.8s ease infinite;}
-@keyframes scroll-pulse{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+/* HERO */
+.hero{padding:8rem 3rem 4rem;max-width:1140px;margin:0 auto;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.38rem 1rem;border-radius:100px;background:var(--coral-s);border:1.5px solid #FECACA;font-size:.74rem;font-weight:700;color:var(--coral);margin-bottom:1.75rem;opacity:0;animation:up .5s ease .1s forwards;}
+.hero-title{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;letter-spacing:-.05em;line-height:.95;color:var(--text);margin-bottom:1.5rem;opacity:0;animation:up .55s ease .25s forwards;}
+.hero-title em{font-style:normal;color:var(--blue);}
+.hero-sub{font-size:1.1rem;color:var(--t2);line-height:1.75;max-width:620px;margin-bottom:2.5rem;opacity:0;animation:up .55s ease .4s forwards;}
+.meta-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:3rem;opacity:0;animation:up .55s ease .55s forwards;}
+.meta-cell{padding:1.25rem 1.5rem;background:var(--white);}
+.meta-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.4rem;}
+.meta-val{font-size:.88rem;font-weight:700;color:var(--text);line-height:1.4;}
 
-/* ── SECTION COMMONS ── */
-.section-wrap{max-width:1140px;margin:0 auto;padding:5rem 3rem;}
-.section-tag{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:.4rem;}
-.section-h{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.04em;color:var(--text);}
-.section-h em{font-style:normal;color:var(--blue);}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+/* HERO IMAGE */
+.hero-img-wrap{border-radius:20px;overflow:hidden;border:1.5px solid var(--border);opacity:0;animation:up .6s ease .7s forwards;}
+.hero-img-wrap img{width:100%;display:block;max-height:480px;object-fit:cover;}
+
+/* SECTION WRAPPER */
+.wrap{max-width:1140px;margin:0 auto;padding:0 3rem;}
+.sec{padding-top:5rem;}
+.sec-num{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:.4rem;}
+.sec-h{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--text);margin-bottom:1.2rem;}
+.sec-h em{font-style:normal;color:var(--blue);}
+.body-p{font-size:1rem;color:var(--t2);line-height:1.85;max-width:700px;margin-bottom:1.25rem;}
+.body-p strong{color:var(--text);font-weight:700;}
+.divider{height:1.5px;background:linear-gradient(90deg,var(--border),transparent);margin:4.5rem 0;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
 .reveal.in{opacity:1;transform:none;}
-.reveal-delay-1{transition-delay:.08s;}
-.reveal-delay-2{transition-delay:.16s;}
-.reveal-delay-3{transition-delay:.24s;}
-.reveal-delay-4{transition-delay:.32s;}
+.d1{transition-delay:.07s;}.d2{transition-delay:.14s;}.d3{transition-delay:.21s;}.d4{transition-delay:.28s;}
 
-/* ── PROJECTS ── */
-.proj-section{background:var(--white);border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
-.proj-section .section-wrap{padding-top:5rem;padding-bottom:5rem;}
-.proj-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;}
-.see-all{font-size:.85rem;font-weight:700;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:.3rem;transition:gap .2s;}
-.see-all:hover{gap:.6rem;}
-.proj-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.25rem;}
-.pj{background:var(--bg);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;text-decoration:none;display:block;grid-column:span 6;transition:transform .25s,box-shadow .25s,border-color .2s;}
-.pj:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);border-color:var(--border2);}
-.pj.wide{grid-column:span 12;}
-.pj-vis{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
-.pj.wide .pj-vis{height:180px;}
-.pj-vis-overlay{position:absolute;inset:0;opacity:0;background:rgba(20,96,238,.06);transition:opacity .25s;}
-.pj:hover .pj-vis-overlay{opacity:1;}
-.pj-body{padding:1.5rem 1.75rem 1.75rem;}
-.pj-tags{display:flex;gap:.38rem;flex-wrap:wrap;margin-bottom:.75rem;}
-.ch{font-size:.65rem;font-weight:700;padding:.26rem .7rem;border-radius:100px;letter-spacing:.03em;}
+/* CHIPS */
+.ch{font-size:.65rem;font-weight:700;padding:.26rem .7rem;border-radius:100px;letter-spacing:.03em;display:inline-block;}
 .ch-ux{background:#FFF0F0;color:#DC2626;border:1px solid #FECACA;}
-.ch-data{background:var(--teal-s);color:#0D9488;border:1px solid #99F6E4;}
 .ch-blue{background:var(--blue-s);color:var(--blue);border:1px solid #BFDBFE;}
+.ch-data{background:var(--teal-s);color:#0D9488;border:1px solid #99F6E4;}
 .ch-live{background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;}
-.ch-violet{background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE;}
-.ch-amber{background:#FFFBEB;color:#D97706;border:1px solid #FDE68A;}
-.pj-title{font-size:1.05rem;font-weight:800;letter-spacing:-.022em;color:var(--text);margin-bottom:.45rem;line-height:1.35;}
-.pj-desc{font-size:.83rem;color:var(--t2);line-height:1.68;margin-bottom:1rem;}
-.pj-footer{display:flex;align-items:center;justify-content:space-between;}
-.pj-link{font-size:.78rem;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:.25rem;transition:gap .15s;}
-.pj:hover .pj-link{gap:.5rem;}
 
-/* ── SKILLS SECTION ── */
-.sk-section{background:var(--bg);}
-.sk-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.25rem;}
-/* TOGGLE */
-.toggle-pill{display:flex;background:var(--white);border:1.5px solid var(--border);border-radius:100px;padding:4px;gap:3px;box-shadow:var(--sh);}
-.tbtn{padding:.6rem 1.6rem;border-radius:100px;font-size:.83rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t2);transition:all .28s;font-family:inherit;display:flex;align-items:center;gap:.4rem;white-space:nowrap;}
-.tbtn:hover:not(.ton-ux):not(.ton-data){background:var(--surface);color:var(--text);}
-.tbtn.ton-ux{background:linear-gradient(135deg,#FF4040,#FF9A3C);color:#fff;box-shadow:0 3px 16px rgba(255,64,64,.38);}
-.tbtn.ton-data{background:linear-gradient(135deg,#00A896,#1460EE);color:#fff;box-shadow:0 3px 16px rgba(0,168,150,.38);}
-.tbtn-icon{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.8;flex-shrink:0;}
-/* skill cards */
-.sk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
-.sk-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:1.4rem 1.6rem;transition:border-color .2s,box-shadow .2s,opacity .32s,transform .32s;cursor:default;}
-.sk-card:hover{border-color:var(--blue);box-shadow:0 4px 28px rgba(20,96,238,.09);}
-.sk-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.32rem;}
-.sk-name{font-size:.9rem;font-weight:700;color:var(--text);letter-spacing:-.012em;}
-.sk-badge{font-size:.66rem;font-weight:700;padding:.26rem .65rem;border-radius:100px;}
-.b-exp{background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0;}
-.b-adv{background:var(--blue-s);color:var(--blue);border:1px solid #BFDBFE;}
-.b-pro{background:#FFFBEB;color:#D97706;border:1px solid #FDE68A;}
-.sk-desc{font-size:.75rem;color:var(--t3);margin-bottom:.95rem;line-height:1.5;}
-.sk-bar-row{display:flex;align-items:center;gap:.75rem;}
-.sk-bar{flex:1;height:7px;background:var(--bg);border-radius:100px;overflow:hidden;}
-.sk-fill{height:100%;border-radius:100px;width:0;transition:width 1.15s cubic-bezier(.4,0,.2,1);}
-.f-ux{background:linear-gradient(90deg,#FF4040,#FF9A3C);}
-.f-data{background:linear-gradient(90deg,#00A896,#1460EE);}
-.f-blue{background:linear-gradient(90deg,#1460EE,#6C3BFF);}
-.sk-pct{font-size:.78rem;font-weight:700;color:var(--t2);min-width:34px;text-align:right;}
+/* CARDS */
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:1.75rem;transition:border-color .2s,box-shadow .2s;}
+.card:hover{border-color:var(--border2);box-shadow:var(--sh);}
+.card-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.55rem;}
+.card-title{font-size:.95rem;font-weight:800;color:var(--text);margin-bottom:.4rem;letter-spacing:-.012em;}
+.card-body{font-size:.82rem;color:var(--t2);line-height:1.65;}
 
-/* ── FOOTER ── */
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2.5rem 0;}
+.step{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:1.5rem;position:relative;transition:border-color .2s,box-shadow .2s;}
+.step:hover{border-color:var(--blue);box-shadow:var(--sh);}
+.step-n{font-size:.68rem;font-weight:700;letter-spacing:.1em;color:var(--t3);margin-bottom:.7rem;}
+.step-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:.8rem;}
+.step-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.3rem;}
+.step-desc{font-size:.77rem;color:var(--t2);line-height:1.6;}
+.step-arr{position:absolute;top:50%;right:-14px;transform:translateY(-50%);color:var(--t3);font-size:.9rem;z-index:1;}
+.step:last-child .step-arr{display:none;}
+
+/* FUNNEL */
+.funnel-box{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:2.25rem;margin:2rem 0;}
+.funnel-head{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:1.75rem;}
+.f-row{display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem;}
+.f-label{font-size:.84rem;font-weight:700;color:var(--text);min-width:164px;}
+.f-track{flex:1;height:34px;background:var(--bg);border-radius:7px;overflow:hidden;}
+.f-fill{height:100%;border-radius:7px;display:flex;align-items:center;padding-left:.875rem;font-size:.75rem;font-weight:700;color:#fff;width:0;transition:width 1.3s cubic-bezier(.4,0,.2,1);}
+.f-pct{font-size:.8rem;font-weight:700;color:var(--text);min-width:44px;text-align:right;}
+.f-drop{font-size:.7rem;font-weight:700;color:var(--coral);min-width:90px;}
+.f-nda{font-size:.75rem;color:var(--t3);font-style:italic;margin-top:1rem;}
+
+/* FULL-WIDTH IMAGE */
+.img-block{border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin:2rem 0;}
+.img-block img{width:100%;display:block;}
+.img-caption{font-size:.78rem;color:var(--t3);text-align:center;padding:.875rem 1.25rem;background:var(--white);border-top:1px solid var(--border);}
+
+/* SIDE-BY-SIDE */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.75rem 0;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin:1.75rem 0;}
+
+/* CALLOUT */
+.callout{background:linear-gradient(135deg,#EBF2FF,#F0F9FF);border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 16px 16px 0;padding:2rem 2.5rem;margin:1.75rem 0;}
+.callout-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.65rem;}
+.callout-text{font-size:1.1rem;font-weight:700;color:var(--text);line-height:1.65;font-style:italic;}
+
+/* STAT CARDS */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2.5rem 0;}
+.stat-card{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;text-align:center;transition:border-color .2s,transform .2s;}
+.stat-card:hover{border-color:var(--blue);transform:translateY(-3px);}
+.stat-n{font-size:2.6rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:.35rem;}
+.stat-n.coral{color:var(--coral);}
+.stat-n.teal{color:var(--teal);}
+.stat-n.blue{color:var(--blue);}
+.stat-n.amber{color:var(--amber);}
+.stat-desc{font-size:.8rem;color:var(--t2);line-height:1.5;font-weight:600;}
+
+/* PRINCIPLES */
+.principle{background:var(--white);border:1.5px solid var(--border);border-top:3px solid var(--blue);border-radius:16px;padding:1.5rem 1.75rem;}
+.prin-n{font-size:.68rem;font-weight:700;color:var(--t3);letter-spacing:.1em;margin-bottom:.45rem;}
+.prin-title{font-size:.93rem;font-weight:800;color:var(--text);margin-bottom:.35rem;}
+.prin-desc{font-size:.78rem;color:var(--t2);line-height:1.65;}
+
+/* TAKEAWAY */
+.tk-box{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:2.25rem;margin:2rem 0;}
+.tk-row{display:flex;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--border);}
+.tk-row:last-child{border-bottom:none;padding-bottom:0;}
+.tk-icon{width:36px;height:36px;border-radius:10px;background:var(--blue-s);border:1px solid #BFDBFE;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:.1rem;}
+.tk-title{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.32rem;}
+.tk-desc{font-size:.82rem;color:var(--t2);line-height:1.65;}
+
+/* NEXT */
+.next-link{background:linear-gradient(135deg,var(--blue-s),var(--teal-s));border:1.5px solid var(--border);border-radius:20px;padding:2.75rem;display:flex;align-items:center;justify-content:space-between;text-decoration:none;margin:2rem 0 5rem;transition:box-shadow .2s,transform .2s;}
+.next-link:hover{box-shadow:var(--sh-lg);transform:translateY(-3px);}
+.nl-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.4rem;}
+.nl-title{font-size:1.35rem;font-weight:800;letter-spacing:-.03em;color:var(--text);}
+.nl-arrow{width:50px;height:50px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 4px 16px rgba(20,96,238,.3);transition:transform .2s;}
+.next-link:hover .nl-arrow{transform:translateX(4px);}
+
+/* RESULTS BG */
+.results-sec{background:var(--white);border-top:1.5px solid var(--border);border-bottom:1.5px solid var(--border);}
+.results-sec .wrap{padding-top:5rem;padding-bottom:5rem;}
+
+/* FOOTER */
 footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(--white);}
 .ft{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 .ft-copy{font-size:.78rem;color:var(--t3);font-weight:500;}
@@ -171,402 +172,437 @@ footer{border-top:1.5px solid var(--border);padding:2.5rem 3rem;background:var(-
 .ft-links a{font-size:.78rem;font-weight:700;color:var(--t2);text-decoration:none;transition:color .2s;}
 .ft-links a:hover{color:var(--blue);}
 
-/* ── KEYFRAMES ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(20,96,238,.45);}70%{box-shadow:0 0 0 8px rgba(20,96,238,0);}}
-@keyframes orb-drift{0%{transform:translate(0,0) scale(1);}100%{transform:translate(40px,30px) scale(1.1);}}
+/* SECTION DIVIDER LINE */
+.sec-divider{max-width:1140px;margin:0 auto;padding:0 3rem;}
+.sec-divider hr{height:1.5px;border:none;background:linear-gradient(90deg,var(--border),transparent);}
 
-/* ── RESPONSIVE ── */
+/* KEYFRAMES */
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+/* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:0 1.5rem;}
-  .nav-center{display:none;}
-  .hero,.section-wrap{padding-left:1.5rem;padding-right:1.5rem;}
+  nav,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  .hero,.wrap{padding-left:1.5rem;padding-right:1.5rem;}
   .hero{padding-top:6rem;}
-  .hero-name{font-size:3.2rem;}
-  .pj{grid-column:span 12 !important;}
-  .sk-grid{grid-template-columns:1fr;}
-  .sk-top{flex-direction:column;align-items:flex-start;}
+  .hero-title{font-size:2.6rem;}
+  .meta-strip{grid-template-columns:repeat(2,1fr);}
+  .process-grid,.stat-row,.two-col,.three-col{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
 <div class="cursor" id="cur"></div>
 <div class="cursor-ring" id="curRing"></div>
+<div class="prog" id="prog"></div>
 
-<!-- Background orbs -->
-<div class="hero-bg-orbs" aria-hidden="true">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-</div>
-
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav id="nav">
-  <a class="logo" href="#">
-    <span class="logo-dot"></span>
-    Doris Wang
+  <a class="nav-back" href="doris-wang-portfolio.html">
+    <span class="back-icon">←</span>
+    Back to Portfolio
   </a>
-  <div class="nav-center">
-    <a class="nav-pill active-ux" href="#projects" id="nav-ux" onclick="filterProjects('ux',this)">✦ UX Design</a>
-    <a class="nav-pill" href="#projects" id="nav-data" onclick="filterProjects('data',this)">⬡ Data Analytics</a>
-  </div>
-  <div class="nav-right">
-    <a class="nav-skills" href="#skills">Skill Levels</a>
-    <a class="nav-cta" href="mailto:hello@doriswang.me">Let's Talk →</a>
-  </div>
+  <a class="nav-logo" href="doris-wang-portfolio.html">
+    <span class="nav-dot"></span>Doris Wang
+  </a>
+  <a class="nav-cta" href="https://wjetrade.com" target="_blank">Live Site ↗</a>
 </nav>
 
 <!-- ── HERO ── -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Available for opportunities · Santa Clara University</div>
-    <p class="hero-greeting">Hello, I'm</p>
-    <h1 class="hero-name">Doris <span class="ac">Wang.</span></h1>
+<header class="hero">
+  <div class="hero-badge">
+    <span class="ch ch-ux">UX Design</span>&nbsp;&nbsp;<span class="ch ch-live">✓ Launched</span>
+  </div>
+  <h1 class="hero-title">WJ-Etrade<br><em>B2C Redesign</em></h1>
+  <p class="hero-sub">Redesigning a B2C e-commerce website using data analysis and UX research to create a faster, user-friendly, and conversion-driven experience for premium outdoor furniture covers.</p>
 
-    <div class="typewriter-wrap">
-      <span class="tw-prefix">I'm a</span>
-      <span class="tw-text" id="tw-text"></span><span class="tw-cursor"></span>
+  <div class="meta-strip">
+    <div class="meta-cell">
+      <div class="meta-label">Timeline</div>
+      <div class="meta-val">Jun — Aug 2023</div>
     </div>
-
-    <p class="hero-sub">
-      Bridging <strong>data-driven insights</strong> and <strong>human-centered design</strong>
-      to craft products that are not just beautiful — but smart, purposeful, and impactful.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-fill">View My Work →</a>
-      <a href="#skills" class="btn-out">Explore Skills</a>
+    <div class="meta-cell">
+      <div class="meta-label">Team</div>
+      <div class="meta-val">1 PM · 1 UX Designer (me)</div>
+    </div>
+    <div class="meta-cell">
+      <div class="meta-label">Tools</div>
+      <div class="meta-val">SQL · Tableau · Figma · Shopify</div>
+    </div>
+    <div class="meta-cell">
+      <div class="meta-label">Disciplines</div>
+      <div class="meta-val">UX Research · Data Analysis · UI</div>
     </div>
   </div>
-  <div class="scroll-hint" aria-hidden="true">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+
+  <!-- REAL BRAND IMAGE -->
+  <div class="hero-img-wrap">
+    <img src="wj-etrade.png" alt="WJ-Etrade — We got you covered">
+  </div>
+</header>
+
+<!-- ── 01 OVERVIEW ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">01 / Overview</div>
+    <h2 class="sec-h">The <em>Problem</em> & Context</h2>
+    <p class="body-p">WJ-Etrade is a B2C platform for premium outdoor furniture covers. Since 2023, sales declined — data revealed a <strong>high drop-off from search to checkout</strong>, suggesting users struggled to discover products and understand their value.</p>
+    <p class="body-p">As the sole UX Analyst & Designer, I collaborated closely with the PM to redesign the layout, introduce a product customization page, and increase both engagement and conversion rates.</p>
+  </div>
+
+  <div class="three-col">
+    <div class="card reveal d1">
+      <div class="card-label">Core Problem</div>
+      <div class="card-title">50+ searches → 0 purchases</div>
+      <div class="card-body">Users hit dead-ends repeatedly, abandoning sessions before ever converting.</div>
+    </div>
+    <div class="card reveal d2">
+      <div class="card-label">User Pain</div>
+      <div class="card-title">Can't find what they need</div>
+      <div class="card-body">Poor discoverability, unclear product info, no guided customization path.</div>
+    </div>
+    <div class="card reveal d3">
+      <div class="card-label">Business Pain</div>
+      <div class="card-title">Low conversion & retention</div>
+      <div class="card-body">Cart abandonment and low repeat purchase rate threatening revenue growth.</div>
+    </div>
+  </div>
+
+  <div class="process-grid reveal" style="margin-top:3rem;">
+    <div class="step">
+      <div class="step-n">STEP 01</div>
+      <div class="step-icon" style="background:#FFF0F0;border:1px solid #FECACA;">🔍</div>
+      <div class="step-title">Discover</div>
+      <div class="step-desc">UX audit · funnel data · zero-result search analysis</div>
+      <span class="step-arr">›</span>
+    </div>
+    <div class="step">
+      <div class="step-n">STEP 02</div>
+      <div class="step-icon" style="background:var(--blue-s);border:1px solid #BFDBFE;">📊</div>
+      <div class="step-title">Define</div>
+      <div class="step-desc">Competitor audit · returning customer interviews · HMW framing</div>
+      <span class="step-arr">›</span>
+    </div>
+    <div class="step">
+      <div class="step-n">STEP 03</div>
+      <div class="step-icon" style="background:var(--teal-s);border:1px solid #CCFBF1;">✏️</div>
+      <div class="step-title">Design</div>
+      <div class="step-desc">80+ wireframes · content model · iterations with PM & copywriter</div>
+      <span class="step-arr">›</span>
+    </div>
+    <div class="step">
+      <div class="step-n">STEP 04</div>
+      <div class="step-icon" style="background:#FFFBEB;border:1px solid #FDE68A;">🚀</div>
+      <div class="step-title">Deliver</div>
+      <div class="step-desc">Shipped on Shopify · live 2023 · measurable impact</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+
+<!-- ── 02 RESEARCH & DATA ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">02 / Research & Data Analysis</div>
+    <h2 class="sec-h">Where Users <em>Drop Off</em></h2>
+    <p class="body-p">Using SQL and Tableau, I analyzed the full search-to-purchase funnel. The data revealed clear friction points — especially between product search and the product detail page, and between "Add to Cart" and checkout completion.</p>
+  </div>
+
+  <div class="funnel-box reveal">
+    <div class="funnel-head">Search-to-Purchase Funnel · Drop-off Analysis</div>
+    <div class="f-row">
+      <div class="f-label">Search</div>
+      <div class="f-track"><div class="f-fill" style="background:linear-gradient(90deg,#1460EE,#4A90E2);" data-w="100">100%</div></div>
+      <div class="f-pct">100%</div><div class="f-drop"></div>
+    </div>
+    <div class="f-row">
+      <div class="f-label">Product Page View</div>
+      <div class="f-track"><div class="f-fill" style="background:linear-gradient(90deg,#1460EE,#4A90E2);" data-w="58">58%</div></div>
+      <div class="f-pct">58%</div><div class="f-drop">▼ 42% drop</div>
+    </div>
+    <div class="f-row">
+      <div class="f-label">Add to Cart</div>
+      <div class="f-track"><div class="f-fill" style="background:linear-gradient(90deg,var(--amber),#FBBF24);" data-w="22">22%</div></div>
+      <div class="f-pct">22%</div><div class="f-drop">▼ 36% drop</div>
+    </div>
+    <div class="f-row">
+      <div class="f-label">Checkout Started</div>
+      <div class="f-track"><div class="f-fill" style="background:linear-gradient(90deg,var(--coral),#FF8A8A);" data-w="10">10%</div></div>
+      <div class="f-pct">10%</div><div class="f-drop">▼ 12% drop</div>
+    </div>
+    <div class="f-row">
+      <div class="f-label">Purchase Completed</div>
+      <div class="f-track"><div class="f-fill" style="background:linear-gradient(90deg,var(--coral),#FF8A8A);" data-w="4">4%</div></div>
+      <div class="f-pct">4%</div><div class="f-drop">▼ 6% drop</div>
+    </div>
+    <p class="f-nda">* Exact values withheld per NDA. Ratios reflect real proportional findings.</p>
+  </div>
+
+  <div class="two-col reveal">
+    <div class="card">
+      <div class="card-label">Zero-Result Searches</div>
+      <div class="card-title">Repeated dead-end experiences</div>
+      <div class="card-body">Users searched terms like "patio chair cover L size grey" and received no results — no fallback suggestions, just a blank state that drove abandonment.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Session Patterns</div>
+      <div class="card-title">Rage clicks & scroll drop-off</div>
+      <div class="card-body">Users clicked non-interactive images expecting filter behavior, and scrolled past product cards without engaging — poor visual hierarchy and unclear CTAs.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+
+<!-- ── 03 COMPETITOR ANALYSIS ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">03 / Competitor Analysis</div>
+    <h2 class="sec-h">Understanding the <em>Landscape</em></h2>
+    <p class="body-p">I benchmarked WJ-Etrade against three direct competitors — Wayfair, Coverstone, and Classic Accessories — across five key UX criteria to identify where WJ-Etrade fell behind and where it had an edge.</p>
+  </div>
+
+  <!-- REAL COMPETITOR ANALYSIS IMAGE -->
+  <div class="img-block reveal">
+    <img src="analysis.png" alt="Competitive analysis matrix — WJ-Etrade vs Wayfair vs Coverstone vs Classic Accessories">
+    <div class="img-caption">Competitive audit across Navigation & Filtering, PDP quality, Checkout Flow, Trust & Reviews, and Mobile Experience</div>
+  </div>
+
+  <div class="three-col reveal">
+    <div class="card" style="border-top:3px solid var(--coral);">
+      <div class="card-label">Gap 1 — Navigation</div>
+      <div class="card-title">Missing dimension-based filtering</div>
+      <div class="card-body">All 3 competitors allow users to filter by furniture type and dimensions. WJ-Etrade had none — forcing manual browsing through long, unstructured product lists.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--amber);">
+      <div class="card-label">Gap 2 — Trust & Reviews</div>
+      <div class="card-title">No material trust signals</div>
+      <div class="card-body">Coverstone and Classic Accessories surface waterproof ratings, UV specs, and photo reviews prominently. WJ-Etrade relied on brand reputation alone.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--teal);">
+      <div class="card-label">Strength — Checkout</div>
+      <div class="card-title">Checkout flow already solid</div>
+      <div class="card-body">WJ-Etrade's checkout flow matched Wayfair's standard — confirming the friction lived upstream in discovery and product detail, not at payment.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+
+<!-- ── 04 USER INTERVIEWS ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">04 / Returning Customer Interviews</div>
+    <h2 class="sec-h">What Users <em>Actually Said</em></h2>
+    <p class="body-p">I conducted remote interviews with returning customers focused on the repeat purchase flow — understanding why they returned, what they trusted, and where the current experience still created friction around fit, reordering, and confidence.</p>
+  </div>
+
+  <!-- REAL INTERVIEW IMAGE 1 -->
+  <div class="img-block reveal">
+    <img src="returning_customer_interview.png" alt="Returning customer interview — Insight 1: product fit and category clarity">
+    <div class="img-caption">Insight 1 — Returning customers want to quickly understand differences between product types without manual comparison</div>
+  </div>
+
+  <!-- REAL INTERVIEW IMAGE 2 -->
+  <div class="img-block reveal">
+    <img src="review-2.png" alt="Interview Insights 2 & 3 — trust signals and customization needs">
+    <div class="img-caption">Insight 2 & 3 — Material trust signals and customization flexibility surfaced as critical unmet needs</div>
+  </div>
+</div>
+
+<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+
+<!-- ── 05 SYNTHESIS ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">05 / Insight Synthesis</div>
+    <h2 class="sec-h">Turning Research into <em>Direction</em></h2>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">How Might We</div>
+    <div class="callout-text">"How might we streamline the shopping experience to improve user satisfaction and boost both purchase and return customer rates?"</div>
+  </div>
+
+  <!-- REAL SYNTHESIS IMAGE 1 — Category Structure -->
+  <div class="img-block reveal">
+    <img src="insight_synthesis.jpg" alt="Insight Synthesis 01 — Category-based product structure and featured sorting">
+    <div class="img-caption">Synthesis 01 — Category-based navigation structure reduces cognitive load by letting users self-identify furniture type instantly</div>
+  </div>
+
+  <!-- REAL SYNTHESIS IMAGE 2 — Trust-Driven -->
+  <div class="img-block reveal">
+    <img src="insight-2.png" alt="Insight Synthesis 02 — Trust-driven product presentation and real-world validation">
+    <div class="img-caption">Synthesis 02 — Making material quality and trust signals explicitly visible throughout the browsing and product detail experience</div>
+  </div>
+</div>
+
+<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+
+<!-- ── 06 DESIGN ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">06 / Design</div>
+    <h2 class="sec-h">From Wireframes to <em>Final Design</em></h2>
+    <p class="body-p">I produced 80+ wireframes across all major page types, developed a content model with the copywriter and PM, and iterated through multiple rounds based on stakeholder feedback and usability patterns.</p>
+  </div>
+
+  <div class="three-col reveal">
+    <div class="principle">
+      <div class="prin-n">PRINCIPLE 01</div>
+      <div class="prin-title">Characteristics First, Promotions Second</div>
+      <div class="prin-desc">Lead with product quality before promotional messaging — builds trust with first-time visitors and justifies premium pricing.</div>
+    </div>
+    <div class="principle" style="border-top-color:var(--teal);">
+      <div class="prin-n">PRINCIPLE 02</div>
+      <div class="prin-title">Category-Driven Navigation</div>
+      <div class="prin-desc">Reorganize discovery around furniture type and cover function — reducing cognitive load and time-to-relevant-product.</div>
+    </div>
+    <div class="principle" style="border-top-color:var(--amber);">
+      <div class="prin-n">PRINCIPLE 03</div>
+      <div class="prin-title">Personalization as a Feature</div>
+      <div class="prin-desc">Make customization a prominent, guided experience — a dedicated page with clear entry points throughout the journey.</div>
+    </div>
+  </div>
+
+  <div class="two-col reveal" style="margin-top:1.5rem;">
+    <div class="card">
+      <div class="card-label" style="color:var(--blue);">Highlight 1 — Collection Page</div>
+      <div class="card-title" style="margin-bottom:.6rem;">Product slideshow with 6 cover categories</div>
+      <div class="card-body">Redesigned collection page surfaces 4 key product attributes, organizes 6 furniture-type categories, and adds a clear value proposition — reducing decision friction significantly.</div>
+    </div>
+    <div class="card">
+      <div class="card-label" style="color:var(--teal);">Highlight 2 — Product Detail Page</div>
+      <div class="card-title" style="margin-bottom:.6rem;">Material selector + dimension guide</div>
+      <div class="card-body">Rebuilt PDP with material comparison, dimension guide, lifestyle imagery, and a persistent "Add to Cart" CTA — addressing the main trust and friction gaps from research.</div>
+    </div>
+  </div>
+
+  <div class="card reveal" style="margin-top:1.25rem;border-top:3px solid var(--coral);">
+    <div class="card-label" style="color:var(--coral);">Highlight 3 — Custom Order Page (New)</div>
+    <div class="card-title" style="margin-bottom:.5rem;">A guided customization experience — entirely new to the platform</div>
+    <div class="card-body">The redesigned site places strong emphasis on customization, with a dedicated page providing clear step-by-step guidance for initiating a custom order. This was absent from the previous site and directly addressed the key need surfaced in customer interviews.</div>
+  </div>
+</div>
+
+<div class="sec-divider" style="padding-top:4.5rem;padding-bottom:0;"><hr></div>
+
+<!-- ── 07 RESULTS ── -->
+<section class="results-sec">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-num">07 / Results</div>
+      <h2 class="sec-h">Measurable <em>Impact</em></h2>
+      <p class="body-p">Post-launch metrics confirmed the redesign achieved its goals — improving both business performance and user experience across key touchpoints.</p>
+    </div>
+    <div class="stat-row reveal">
+      <div class="stat-card">
+        <div class="stat-n blue">+15%</div>
+        <div class="stat-desc">Product Detail Page views for top products</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-n teal">+20%</div>
+        <div class="stat-desc">Average session duration across the site</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-n amber">+18%</div>
+        <div class="stat-desc">Average Order Value post-redesign</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-n coral">+5%</div>
+        <div class="stat-desc">"Add to Cart" click rate on PDP</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── FEATURED PROJECTS ── -->
-<section class="proj-section" id="projects">
-  <div class="section-wrap">
-    <div class="proj-header reveal">
+<!-- ── 08 TAKEAWAY ── -->
+<div class="wrap sec">
+  <div class="reveal">
+    <div class="sec-num">08 / Takeaway</div>
+    <h2 class="sec-h">What I <em>Learned</em></h2>
+  </div>
+  <div class="tk-box reveal">
+    <div class="tk-row">
+      <div class="tk-icon">🎯</div>
       <div>
-        <p class="section-tag">Featured Work</p>
-        <h2 class="section-h">Selected <em>Projects</em></h2>
+        <div class="tk-title">Proficiency in User-Centric Design</div>
+        <div class="tk-desc">Translating complex product advantages into user-friendly content that clearly communicates distinctive value — good design reduces cognitive load at every decision point.</div>
       </div>
-      <a href="https://www.doriswang.me/" target="_blank" class="see-all">View all work →</a>
     </div>
-
-    <div class="proj-grid" id="proj-grid">
-
-      <!-- WJ-Etrade (wide) -->
-      <a href="https://www.doriswang.me/etrade" class="pj wide reveal" data-type="ux" target="_blank">
-        <div class="pj-vis" style="background:linear-gradient(135deg,#FFF1F1 0%,#FFF8F0 100%);">
-          <div class="pj-vis-overlay"></div>
-          <svg width="100%" height="100%" viewBox="0 0 960 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="60" y="22" width="200" height="136" rx="12" fill="white" stroke="#FECACA" stroke-width="1.5"/>
-            <rect x="76" y="37" width="110" height="10" rx="5" fill="#FCA5A5" opacity=".45"/>
-            <rect x="76" y="56" width="75" height="7" rx="3.5" fill="#FEE2E2" opacity=".5"/>
-            <rect x="76" y="71" width="88" height="7" rx="3.5" fill="#FEE2E2" opacity=".38"/>
-            <rect x="76" y="88" width="56" height="26" rx="8" fill="#FF4040"/>
-            <rect x="76" y="125" width="90" height="7" rx="3.5" fill="#FEE2E2" opacity=".3"/>
-            <rect x="290" y="22" width="200" height="136" rx="12" fill="white" stroke="#FECACA" stroke-width="1.5"/>
-            <rect x="306" y="34" width="88" height="72" rx="8" fill="#FEF3C7" opacity=".55"/>
-            <rect x="404" y="40" width="76" height="10" rx="5" fill="#FCA5A5" opacity=".42"/>
-            <rect x="404" y="58" width="56" height="7" rx="3.5" fill="#FEE2E2" opacity=".42"/>
-            <rect x="404" y="72" width="68" height="7" rx="3.5" fill="#FEE2E2" opacity=".32"/>
-            <rect x="404" y="90" width="56" height="24" rx="7" fill="#FF4040" opacity=".7"/>
-            <rect x="520" y="22" width="200" height="136" rx="12" fill="white" stroke="#FECACA" stroke-width="1.5"/>
-            <circle cx="620" cy="82" r="36" fill="rgba(245,158,11,.12)" stroke="#F59E0B" stroke-width="1" opacity=".4"/>
-            <rect x="536" y="128" width="168" height="16" rx="5" fill="#FF4040" opacity=".12"/>
-            <rect x="750" y="22" width="150" height="136" rx="12" fill="#FFF0F0"/>
-            <rect x="762" y="34" width="126" height="90" rx="8" fill="#FFECEC" opacity=".7"/>
-            <rect x="762" y="133" width="70" height="16" rx="5" fill="#FF4040" opacity=".2"/>
-          </svg>
-        </div>
-        <div class="pj-body">
-          <div class="pj-tags">
-            <span class="ch ch-ux">Web Design</span><span class="ch ch-ux">UI/UX</span><span class="ch ch-ux">Mobile</span>
-            <span class="ch ch-live">✓ Launched</span>
-          </div>
-          <h3 class="pj-title">WJ-Etrade — E-commerce Redesign for a Premium Experience</h3>
-          <p class="pj-desc">End-to-end redesign elevating the customer journey with refined visual language, streamlined navigation, and a mobile-first approach that converts.</p>
-          <div class="pj-footer"><span class="pj-link">View Case Study →</span></div>
-        </div>
-      </a>
-
-      <!-- Leaflet -->
-      <a href="https://www.doriswang.me/leaflet" class="pj reveal reveal-delay-1" data-type="ux" target="_blank">
-        <div class="pj-vis" style="background:linear-gradient(135deg,#FFFBEB 0%,#F0FDF4 100%);">
-          <div class="pj-vis-overlay"></div>
-          <svg width="100%" height="100%" viewBox="0 0 460 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 125 Q115 65 230 125 T460 125" fill="none" stroke="#F59E0B" stroke-width="2.5" opacity=".35"/>
-            <path d="M0 148 Q115 88 230 148 T460 148" fill="none" stroke="#F59E0B" stroke-width="1.5" opacity=".2"/>
-            <path d="M0 170 Q115 110 230 170 T460 170" fill="none" stroke="#F59E0B" stroke-width="1" opacity=".12"/>
-            <circle cx="230" cy="125" r="32" fill="rgba(245,158,11,.1)" stroke="#F59E0B" stroke-width="2" opacity=".5"/>
-            <circle cx="230" cy="125" r="10" fill="#F59E0B" opacity=".35"/>
-            <circle cx="92" cy="100" r="5" fill="#F59E0B" opacity=".22"/>
-            <circle cx="368" cy="135" r="3.5" fill="#F59E0B" opacity=".18"/>
-          </svg>
-        </div>
-        <div class="pj-body">
-          <div class="pj-tags"><span class="ch ch-ux">Product Design</span><span class="ch ch-amber">Mobile App</span></div>
-          <h3 class="pj-title">Leaflet — Daily Commute Adventure App</h3>
-          <p class="pj-desc">Transforming mundane commutes into exploratory moments through intelligent route suggestions and local discovery.</p>
-          <div class="pj-footer"><span class="pj-link">View Case Study →</span></div>
-        </div>
-      </a>
-
-      <!-- Stella -->
-      <a href="https://www.doriswang.me/stella" class="pj reveal reveal-delay-2" data-type="ux" target="_blank">
-        <div class="pj-vis" style="background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 100%);">
-          <div class="pj-vis-overlay"></div>
-          <svg width="100%" height="100%" viewBox="0 0 460 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="230" cy="100" r="80" fill="none" stroke="#7C3AED" stroke-width=".8" opacity=".18"/>
-            <circle cx="230" cy="100" r="55" fill="none" stroke="#7C3AED" stroke-width=".8" opacity=".25"/>
-            <circle cx="230" cy="100" r="28" fill="rgba(124,58,237,.08)" stroke="#7C3AED" stroke-width="1.8" opacity=".45"/>
-            <circle cx="230" cy="22" r="5" fill="#7C3AED" opacity=".45"/>
-            <circle cx="302" cy="158" r="3.5" fill="#7C3AED" opacity=".32"/>
-            <circle cx="162" cy="162" r="4" fill="#7C3AED" opacity=".28"/>
-            <circle cx="344" cy="50" r="3" fill="#7C3AED" opacity=".35"/>
-            <circle cx="120" cy="56" r="3.5" fill="#7C3AED" opacity=".28"/>
-            <circle cx="310" cy="40" r="2" fill="#7C3AED" opacity=".4"/>
-          </svg>
-        </div>
-        <div class="pj-body">
-          <div class="pj-tags"><span class="ch ch-violet">UI/UX Design</span><span class="ch ch-violet">App & Web</span><span class="ch" style="background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE;">Coming Soon</span></div>
-          <h3 class="pj-title">Stella — Zodiac Career & Love Prediction App</h3>
-          <p class="pj-desc">Where astrology meets product design — career, love, and fortune through an immersive celestial interface.</p>
-          <div class="pj-footer"><span class="pj-link">View Case Study →</span></div>
-        </div>
-      </a>
-
-      <!-- Catzone (wide) -->
-      <a href="https://www.doriswang.me/catzone-1-1" class="pj wide reveal reveal-delay-1" data-type="ux" target="_blank">
-        <div class="pj-vis" style="background:linear-gradient(135deg,#EFF6FF 0%,#F0F9FF 100%);">
-          <div class="pj-vis-overlay"></div>
-          <svg width="100%" height="100%" viewBox="0 0 960 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="90" y="26" width="148" height="128" rx="12" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
-            <rect x="106" y="40" width="116" height="68" rx="8" fill="#EBF2FF"/><rect x="106" y="118" width="68" height="14" rx="5" fill="#1460EE" opacity=".18"/>
-            <rect x="268" y="17" width="148" height="128" rx="12" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
-            <rect x="284" y="31" width="116" height="68" rx="8" fill="#DBEAFE"/><rect x="284" y="109" width="68" height="14" rx="5" fill="#1460EE" opacity=".18"/>
-            <line x1="238" y1="90" x2="268" y2="81" stroke="#93C5FD" stroke-width="1.5" opacity=".5"/>
-            <rect x="446" y="26" width="148" height="128" rx="12" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
-            <rect x="462" y="40" width="116" height="68" rx="8" fill="#EBF2FF"/><rect x="462" y="118" width="68" height="14" rx="5" fill="#1460EE" opacity=".18"/>
-            <line x1="416" y1="81" x2="446" y2="90" stroke="#93C5FD" stroke-width="1.5" opacity=".5"/>
-            <rect x="624" y="17" width="148" height="128" rx="12" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
-            <rect x="640" y="31" width="116" height="68" rx="8" fill="#DBEAFE"/><rect x="640" y="109" width="68" height="14" rx="5" fill="#1460EE" opacity=".18"/>
-            <line x1="594" y1="90" x2="624" y2="81" stroke="#93C5FD" stroke-width="1.5" opacity=".5"/>
-            <rect x="802" y="26" width="112" height="128" rx="12" fill="white" stroke="#BFDBFE" stroke-width="1.5"/>
-            <rect x="816" y="40" width="84" height="68" rx="8" fill="#EBF2FF"/>
-            <line x1="772" y1="81" x2="802" y2="90" stroke="#93C5FD" stroke-width="1.5" opacity=".5"/>
-          </svg>
-        </div>
-        <div class="pj-body">
-          <div class="pj-tags"><span class="ch ch-blue">UI/UX Design</span><span class="ch ch-blue">Community System</span></div>
-          <h3 class="pj-title">Catzone — Community Platform for Neighborhood Cats</h3>
-          <p class="pj-desc">Enabling care coordination, feeding schedules, and neighbourhood engagement through thoughtful, inclusive UX design.</p>
-          <div class="pj-footer"><span class="pj-link">View Case Study →</span></div>
-        </div>
-      </a>
-
-      <!-- Data project placeholder -->
-      <a href="https://github.com/doriswang-me/data-portfolio/blob/main/README.md" class="pj wide reveal" data-type="data" target="_blank" style="display:none;">
-        <div class="pj-vis" style="background:linear-gradient(135deg,var(--teal-s) 0%,#EBF2FF 100%);">
-          <div class="pj-vis-overlay"></div>
-          <svg width="100%" height="100%" viewBox="0 0 960 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <rect x="80" y="120" width="60" height="40" rx="4" fill="#00A896" opacity=".6"/>
-            <rect x="160" y="90" width="60" height="70" rx="4" fill="#00A896" opacity=".75"/>
-            <rect x="240" y="60" width="60" height="100" rx="4" fill="#00A896" opacity=".9"/>
-            <rect x="320" y="40" width="60" height="120" rx="4" fill="#1460EE" opacity=".8"/>
-            <rect x="400" y="70" width="60" height="90" rx="4" fill="#1460EE" opacity=".6"/>
-            <rect x="480" y="50" width="60" height="110" rx="4" fill="#00A896" opacity=".7"/>
-            <rect x="560" y="80" width="60" height="80" rx="4" fill="#1460EE" opacity=".75"/>
-            <rect x="640" y="45" width="60" height="115" rx="4" fill="#00A896" opacity=".85"/>
-            <rect x="720" y="100" width="60" height="60" rx="4" fill="#1460EE" opacity=".65"/>
-            <rect x="800" y="65" width="60" height="95" rx="4" fill="#00A896" opacity=".7"/>
-            <line x1="80" y1="165" x2="880" y2="165" stroke="#93C5FD" stroke-width="1" opacity=".4"/>
-            <path d="M80 120 Q240 60 400 70 T720 60 T880 80" fill="none" stroke="#00A896" stroke-width="2" opacity=".4"/>
-          </svg>
-        </div>
-        <div class="pj-body">
-          <div class="pj-tags"><span class="ch ch-data">Python</span><span class="ch ch-data">SQL</span><span class="ch ch-data">Tableau</span><span class="ch ch-blue">Data Analysis</span></div>
-          <h3 class="pj-title">Data Portfolio — Analytics & Visualization Projects</h3>
-          <p class="pj-desc">A curated collection of data analysis projects including EDA, statistical modeling, and interactive dashboards — all available on GitHub.</p>
-          <div class="pj-footer"><span class="pj-link">View on GitHub →</span></div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── INTERACTIVE SKILLS ── -->
-<section class="sk-section" id="skills">
-  <div class="section-wrap">
-    <div class="sk-top reveal">
+    <div class="tk-row">
+      <div class="tk-icon">🤝</div>
       <div>
-        <p class="section-tag">Interactive Skill Levels</p>
-        <h2 class="section-h">My <em>Proficiency</em></h2>
-      </div>
-      <div class="toggle-pill">
-        <button class="tbtn ton-ux" id="tbtn-ux" onclick="switchSkills('ux')">
-          <span class="tbtn-icon"></span> UX Design
-        </button>
-        <button class="tbtn" id="tbtn-data" onclick="switchSkills('data')">
-          <span class="tbtn-icon"></span> Data Analytics
-        </button>
+        <div class="tk-title">Cross-Functional Collaboration</div>
+        <div class="tk-desc">Ensuring UX work is aligned with overarching business goals — through close collaboration with PM and copywriter — was essential to shipping successfully and defensibly.</div>
       </div>
     </div>
-    <div class="sk-grid" id="sk-grid"></div>
+    <div class="tk-row">
+      <div class="tk-icon">📊</div>
+      <div>
+        <div class="tk-title">Data as a Design Tool</div>
+        <div class="tk-desc">Using SQL and Tableau to analyze the funnel before touching Figma changed the problem framing entirely. Data made the invisible visible and made every design decision more impactful.</div>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- ── FOOTER ── -->
+  <a href="https://www.doriswang.me/leaflet" target="_blank" class="next-link reveal">
+    <div>
+      <div class="nl-label">Next Project</div>
+      <div class="nl-title">Leaflet — Daily Commute Adventure App →</div>
+    </div>
+    <div class="nl-arrow">→</div>
+  </a>
+</div>
+
 <footer>
   <div class="ft">
-    <span class="ft-copy">© 2024 Doris Wang · Product Designer & Data Analyst · Santa Clara University</span>
+    <span class="ft-copy">© 2024 Doris Wang · Product Designer & Data Analyst</span>
     <div class="ft-links">
-      <a href="https://www.doriswang.me/" target="_blank">Portfolio</a>
+      <a href="doris-wang-portfolio.html">← Portfolio</a>
       <a href="https://github.com/doriswang-me" target="_blank">GitHub</a>
-      <a href="#" target="_blank">LinkedIn</a>
+      <a href="https://wjetrade.com" target="_blank">Live Site ↗</a>
     </div>
   </div>
 </footer>
 
 <script>
-/* ── CURSOR ── */
-const cur = document.getElementById('cur');
-const ring = document.getElementById('curRing');
+/* CURSOR */
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
-document.querySelectorAll('a,button,.pj,.sk-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,.card,.stat-card,.step,.img-block').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch-big'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch-big'));
 });
 
-/* ── TYPEWRITER ── */
-const ROLES = [
-  'Product Designer.',
-  'UX Researcher.',
-  'Data Analyst.',
-  'Visual Storyteller.',
-  'Frontend Developer.',
-  'Human-Centered Thinker.'
-];
-let ri=0, ci=0, deleting=false;
-const twEl = document.getElementById('tw-text');
-function type(){
-  const word = ROLES[ri];
-  if(!deleting){
-    twEl.textContent = word.slice(0,++ci);
-    if(ci===word.length){ deleting=true; setTimeout(type,1800); return; }
-    setTimeout(type, 80 + Math.random()*40);
-  } else {
-    twEl.textContent = word.slice(0,--ci);
-    if(ci===0){ deleting=false; ri=(ri+1)%ROLES.length; setTimeout(type,400); return; }
-    setTimeout(type,45);
-  }
-}
-setTimeout(type, 1200);
-
-/* ── SKILLS DATA ── */
-const SKILLS = {
-  ux:[
-    {name:'Figma & Design Systems',badge:'Expert',bc:'b-exp',pct:95,fill:'f-ux',desc:'Components, auto-layout, variables, design tokens'},
-    {name:'User Research & Testing',badge:'Expert',bc:'b-exp',pct:90,fill:'f-ux',desc:'Interviews, usability tests, affinity mapping'},
-    {name:'Wireframing & Prototyping',badge:'Expert',bc:'b-exp',pct:93,fill:'f-blue',desc:'Low-fi to high-fi, interactive user flows'},
-    {name:'Interaction & Motion Design',badge:'Advanced',bc:'b-adv',pct:85,fill:'f-ux',desc:'Micro-interactions, transitions, ProtoPie'},
-    {name:'Adobe Creative Suite',badge:'Advanced',bc:'b-adv',pct:82,fill:'f-blue',desc:'Photoshop, Illustrator, After Effects'},
-    {name:'B2C Marketing Design',badge:'Advanced',bc:'b-adv',pct:84,fill:'f-ux',desc:'Campaign assets, brand systems, conversion'},
-  ],
-  data:[
-    {name:'Python · Pandas · NumPy',badge:'Expert',bc:'b-exp',pct:92,fill:'f-data',desc:'Data wrangling, EDA, automation pipelines'},
-    {name:'SQL & Database Design',badge:'Advanced',bc:'b-adv',pct:88,fill:'f-data',desc:'Complex queries, joins, data modeling'},
-    {name:'Tableau & Data Visualization',badge:'Advanced',bc:'b-adv',pct:85,fill:'f-data',desc:'Dashboards, charts, executive storytelling'},
-    {name:'R & Statistical Analysis',badge:'Advanced',bc:'b-adv',pct:80,fill:'f-blue',desc:'Regression, hypothesis testing, ggplot2'},
-    {name:'A/B Testing & Experimentation',badge:'Advanced',bc:'b-adv',pct:86,fill:'f-data',desc:'Hypothesis design, statistical significance'},
-    {name:'Machine Learning Basics',badge:'Proficient',bc:'b-pro',pct:72,fill:'f-blue',desc:'Scikit-learn, classification, clustering'},
-  ]
-};
-let curSkill = 'ux';
-
-function renderSkills(mode){
-  const grid = document.getElementById('sk-grid');
-  grid.innerHTML = SKILLS[mode].map((s,i)=>`
-    <div class="sk-card" style="opacity:0;transform:translateY(16px);transition:opacity .32s ease ${i*.07}s,transform .32s ease ${i*.07}s,border-color .2s,box-shadow .2s;">
-      <div class="sk-top-row">
-        <span class="sk-name">${s.name}</span>
-        <span class="sk-badge ${s.bc}">${s.badge}</span>
-      </div>
-      <p class="sk-desc">${s.desc}</p>
-      <div class="sk-bar-row">
-        <div class="sk-bar"><div class="sk-fill ${s.fill}" data-pct="${s.pct}"></div></div>
-        <span class="sk-pct">${s.pct}%</span>
-      </div>
-    </div>`).join('');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    grid.querySelectorAll('.sk-card').forEach(el=>{el.style.opacity='1';el.style.transform='translateY(0)';});
-    grid.querySelectorAll('.sk-fill').forEach(el=>{el.style.width=el.dataset.pct+'%';});
-  }));
-}
-
-function switchSkills(mode){
-  if(mode===curSkill) return;
-  curSkill = mode;
-  document.getElementById('tbtn-ux').className = 'tbtn'+(mode==='ux'?' ton-ux':'');
-  document.getElementById('tbtn-data').className = 'tbtn'+(mode==='data'?' ton-data':'');
-  const grid = document.getElementById('sk-grid');
-  grid.style.opacity='0'; grid.style.transition='opacity .2s';
-  setTimeout(()=>{ renderSkills(mode); grid.style.opacity='1'; }, 200);
-}
-renderSkills('ux');
-
-/* ── PROJECT FILTER ── */
-let curFilter = 'ux';
-function filterProjects(type, el){
-  curFilter = type;
-  document.querySelectorAll('.nav-pill').forEach(p=>p.className='nav-pill');
-  el.classList.add(type==='ux'?'active-ux':'active-data');
-
-  const cards = document.querySelectorAll('.pj');
-  cards.forEach(c=>{
-    const match = c.dataset.type===type;
-    if(match){
-      c.style.display='block';
-      requestAnimationFrame(()=>{ c.style.opacity='1'; c.style.transform='translateY(0)'; });
-    } else {
-      c.style.opacity='0'; c.style.transform='translateY(12px)';
-      setTimeout(()=>{ if(c.dataset.type!==curFilter) c.style.display='none'; },250);
-    }
-  });
-}
-
-/* ── SCROLL REVEAL ── */
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
-},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>{
-  el.style.transition='opacity .65s ease, transform .65s ease';
-  io.observe(el);
+/* PROGRESS BAR */
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('nav').classList.toggle('sc',window.scrollY>40);
 });
 
-/* ── SCROLL-TRIGGERED SKILL BARS ── */
-const skIo = new IntersectionObserver(entries=>{
+/* SCROLL REVEAL */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* FUNNEL BARS */
+const fio=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      e.target.querySelectorAll('.sk-fill').forEach(f=>{ f.style.width=f.dataset.pct+'%'; });
-      skIo.unobserve(e.target);
+      e.target.querySelectorAll('.f-fill').forEach((f,i)=>{
+        setTimeout(()=>{f.style.width=f.dataset.w+'%';},i*170);
+      });
+      fio.unobserve(e.target);
     }
   });
-},{threshold:0.2});
-skIo.observe(document.getElementById('skills'));
-
-/* ── NAV SCROLL ── */
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY>40);
-});
+},{threshold:.2});
+document.querySelectorAll('.funnel-box').forEach(el=>fio.observe(el));
 </script>
 </body>
 </html>
