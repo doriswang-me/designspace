@@ -1,24 +1,59 @@
+/* ===== Project Card Image Area ===== */
+
 .pj-vis {
   position: relative;
   overflow: hidden;
+  height: 320px; /* 固定高度，防止塌 */
+  border-radius: 16px 16px 0 0;
 }
 
+/* 图片 */
 .pj-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+
+  /* 动画 */
+  transition: transform 0.5s ease;
 }
 
+/* hover 放大 */
+.pj:hover .pj-img {
+  transform: scale(1.06);
+}
+
+/* 遮罩（更有设计感） */
 .pj-vis-overlay {
   position: absolute;
   inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.05),
+    transparent
+  );
+  pointer-events: none;
 }
 
-.pj-img {
-  transition: transform 0.4s ease;
+/* ===== Card整体优化（推荐加） ===== */
+
+.pj {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.pj:hover .pj-img {
-  transform: scale(1.05);
+/* hover 卡片浮起来 */
+.pj:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* ===== 文字区域（更干净） ===== */
+
+.pj-body {
+  padding: 24px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
 }
