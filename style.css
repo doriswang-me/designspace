@@ -1,10 +1,27 @@
-/* ===== Project Card Image Area ===== */
+/* ===== Project Card ===== */
+
+.pj {
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 卡片 hover 浮起 */
+.pj:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== 图片区域 ===== */
 
 .pj-vis {
   position: relative;
   overflow: hidden;
-  height: 320px; /* 固定高度，防止塌 */
-  border-radius: 16px 16px 0 0;
+
+  /* 用比例控制大小（更专业） */
+  aspect-ratio: 16 / 7;
+
+  background: #f5f5f5;
 }
 
 /* 图片 */
@@ -14,16 +31,15 @@
   object-fit: cover;
   display: block;
 
-  /* 动画 */
   transition: transform 0.5s ease;
 }
 
-/* hover 放大 */
+/* hover 图片放大 */
 .pj:hover .pj-img {
   transform: scale(1.06);
 }
 
-/* 遮罩（更有设计感） */
+/* 渐变遮罩（高级感） */
 .pj-vis-overlay {
   position: absolute;
   inset: 0;
@@ -36,24 +52,61 @@
   pointer-events: none;
 }
 
-/* ===== Card整体优化（推荐加） ===== */
-
-.pj {
-  border-radius: 18px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-/* hover 卡片浮起来 */
-.pj:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-/* ===== 文字区域（更干净） ===== */
+/* ===== 内容区域 ===== */
 
 .pj-body {
   padding: 24px;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(6px);
+}
+
+/* 标题 */
+.pj-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 12px 0;
+}
+
+/* 描述 */
+.pj-desc {
+  color: #5f6b7a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== 标签 ===== */
+
+.pj-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ch {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ffeaea;
+  color: #ff4d4f;
+}
+
+/* 已上线标签 */
+.ch-live {
+  background: #e6f7ec;
+  color: #2e9e5b;
+}
+
+/* ===== 链接 ===== */
+
+.pj-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 500;
+  color: #2f6df6;
+  text-decoration: none;
+}
+
+/* hover */
+.pj-link:hover {
+  text-decoration: underline;
 }
